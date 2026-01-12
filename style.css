@@ -1,0 +1,36 @@
+.card{
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    border: 1px solid rgb(38, 66, 192);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.card__left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+/* .card__left-name{}
+.card__left-age{}
+.card__left-address{}
+.card__left-email{} */
+
+.card__right{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.card__right-avatar{
+    width: 100%;
+    object-fit: cover;
+}
+/* .card__right-gender{} */
