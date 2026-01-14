@@ -1,26 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer type="module"></script>
-    <title>Users Cards</title>
-</head>
-<body>
-    <main>
-        <div class="card">
-            <div class="card__left">
-                <div class="card__left-name">Ivan</div>
-                <div class="card__left-age">25 age</div>
-                <div class="card__left-address">Moscow</div>
-                <div class="card__left-email">google@example.com</div>   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/avatar.jpg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" type="module" defer></script>
+    <title>Users App</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__left">
+        <h1 class="header__title">Create users and use more filters !</h1>
+        <p class="header__subtitle">
+          This is my practice to learn
+          <span class="header__subtitle-methods">GET, POST, PUT, PUTCH</span>
+          methods in JS
+        </p>
+      </div>
+      <div class="header__right">
+        <img
+          class="header__rightContent-img"
+          src="./avatar.jpg"
+          alt="developer img"
+        />
+        <span class="header__rightContent-author">TheGedzie</span>
+      </div>
+    </header>
+    <main class="main">
+      <section class="info">
+        <p class="info__totalUsers">
+          Users total: <span id="totalUsers">...</span>
+        </p>
+      </section>
+      <section class="createForm">
+        <input type="text" class="createForm-name" placeholder="Name" />
+        <input type="text" class="createForm-age" placeholder="Age" />
+        <button class="createForm-createBtn">Create</button>
+      </section>
+      <section class="cards"></section>
+
+      <template id="cardTemplate">
+        <section class="card">
+          <div class="card__left">
+            <span class="card__left-email">aaaaa@gmail.com</span>
+            <span class="card__left-city">New-Yoark</span>
+            <button class="deleteBtn">DELETE</button>
+          </div>
+          <div class="card__right">
+            <img alt="avatar" class="card__right-avatar" />
+            <span class="card__right-userInfo"
+              >Name: <span class="card__right-userInfo-name">Ivan</span> |
+              <span class="card__right-userInfo-age">Age: 29</span></span
+            >
+            <div class="updateUser">
+              <button class="updateUser__Btn">UPDATE</button>
+              <input
+                type="text"
+                class="updateUser__newName"
+                placeholder="New name"
+              />
+              <input
+                type="text"
+                class="updateUser__newAge"
+                placeholder="New age"
+              />
             </div>
-            <div class="card__right">
-                <div class="card__right-avatar"></div>
-                <div class="card__right-gender">Male</div>
-            </div>
-        </div>
+          </div>
+        </section>
+      </template>
     </main>
-</body>
+  </body>
 </html>

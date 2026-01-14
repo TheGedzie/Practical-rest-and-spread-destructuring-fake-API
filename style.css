@@ -1,36 +1,447 @@
-.card{
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    padding: 10px 20px;
-    border: 1px solid rgb(38, 66, 192);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.card__left{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
+body {
+  background: linear-gradient(
+    135deg,
+    rgb(35, 35, 35) 0%,
+    rgb(50, 50, 50) 50%,
+    rgb(35, 35, 35) 100%
+  );
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
 }
-/* .card__left-name{}
-.card__left-age{}
-.card__left-address{}
-.card__left-email{} */
 
-.card__right{
-    display: flex;
+.header {
+  width: 100%;
+  height: auto;
+  background-color: #000000;
+  font-family: "Press Start 2P", system-ui;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px;
+  border-bottom-left-radius: 150px;
+  border-bottom-right-radius: 150px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.header__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  max-width: 50%;
+}
+
+.header__title {
+  color: rgb(196, 196, 196);
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header__subtitle {
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.header__subtitle-methods {
+  color: rgb(17, 189, 17);
+  text-shadow: 0 0 10px rgba(17, 189, 17, 0.5);
+}
+
+.header__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.header__rightContent-img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.header__rightContent-author {
+  text-shadow: rgb(17, 189, 17) 1px 0 10px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.info__totalUsers {
+  font-family: "Press Start 2P", system-ui;
+  color: rgb(196, 196, 196);
+  font-size: 24px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 40px;
+  border-radius: 15px;
+  border: 2px solid rgb(17, 189, 17);
+  box-shadow: 0 0 20px rgba(17, 189, 17, 0.3);
+}
+
+#totalUsers {
+  color: rgb(17, 189, 17);
+  text-shadow: 0 0 10px rgba(17, 189, 17, 0.7);
+}
+
+.createForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.createForm-name,
+.createForm-age {
+  padding: 15px 25px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgb(196, 196, 196);
+  border: 2px solid rgb(17, 189, 17);
+  border-radius: 10px;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.createForm-name:focus,
+.createForm-age:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(17, 189, 17, 0.5);
+  transform: translateY(-2px);
+}
+
+.createForm-name::placeholder,
+.createForm-age::placeholder {
+  color: rgba(196, 196, 196, 0.6);
+}
+
+.createForm-createBtn {
+  padding: 15px 30px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 0.8rem;
+  background: rgb(17, 189, 17);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.createForm-createBtn:hover {
+  background: rgb(20, 220, 20);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(17, 189, 17, 0.4);
+}
+
+.createForm-createBtn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(17, 189, 17, 0.3);
+}
+
+.cards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 100px 5%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.card {
+  width: 450px;
+  min-height: 500px;
+  background: rgba(30, 30, 30, 0.95);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgb(17, 189, 17);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(17, 189, 17, 0.3);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(17, 189, 17) 50%,
+    transparent 100%
+  );
+}
+
+.card__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+  padding-right: 15px;
+  border-right: 2px solid rgba(17, 189, 17, 0.3);
+}
+
+.card__left-email,
+.card__left-city {
+  font-family: "Press Start 2P", system-ui;
+  color: rgb(196, 196, 196);
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1.5;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 100%;
+  word-break: break-all;
+}
+
+.card__left-email {
+  color: rgb(17, 189, 17);
+  border: 1px solid rgba(17, 189, 17, 0.3);
+}
+
+.card__left-city {
+  color: rgb(196, 196, 196);
+  border: 1px solid rgba(196, 196, 196, 0.3);
+}
+
+.deleteBtn {
+  padding: 12px 25px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 0.7rem;
+  background: rgba(220, 20, 20, 0.9);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.deleteBtn:hover {
+  background: rgba(255, 20, 20, 1);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(220, 20, 20, 0.5);
+}
+
+.card__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex: 1;
+  padding-left: 15px;
+}
+
+.card__right-avatar {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgb(17, 189, 17);
+  box-shadow: 0 0 20px rgba(17, 189, 17, 0.3);
+  transition: all 0.3s ease;
+}
+
+.card__right-avatar:hover {
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 0 30px rgba(17, 189, 17, 0.5);
+}
+
+.card__right-userInfo {
+  font-family: "Press Start 2P", system-ui;
+  color: rgb(196, 196, 196);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 1px solid rgba(17, 189, 17, 0.3);
+  width: 100%;
+}
+
+.card__right-userInfo-name {
+  color: rgb(17, 189, 17);
+  text-shadow: 0 0 10px rgba(17, 189, 17, 0.5);
+}
+
+.card__right-userInfo-age {
+  color: rgb(196, 196, 196);
+}
+
+.updateUser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.updateUser__newName,
+.updateUser__newAge {
+  padding: 10px 15px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 0.6rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgb(196, 196, 196);
+  border: 1px solid rgb(17, 189, 17);
+  border-radius: 6px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.updateUser__newName:focus,
+.updateUser__newAge:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(17, 189, 17, 0.5);
+}
+
+.updateUser__Btn {
+  padding: 12px 25px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 0.7rem;
+  background: rgb(17, 189, 17);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.updateUser__Btn:hover {
+  background: rgb(20, 220, 20);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(17, 189, 17, 0.5);
+}
+
+/* Adaptive */
+@media (max-width: 1200px) {
+  .header {
     flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  .header__left {
+    max-width: 100%;
+  }
+
+  .header__title {
+    font-size: 1.3rem;
+  }
 }
-.card__right-avatar{
+
+@media (max-width: 768px) {
+  .header__title {
+    font-size: 1rem;
+  }
+
+  .header__subtitle {
+    font-size: 0.7rem;
+  }
+
+  .info__totalUsers {
+    font-size: 1rem;
+    padding: 15px 30px;
+  }
+
+  .createForm {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .createForm-name,
+  .createForm-age,
+  .createForm-createBtn {
     width: 100%;
-    object-fit: cover;
+    max-width: 300px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .card__left {
+    border-right: none;
+    border-bottom: 2px solid rgba(17, 189, 17, 0.3);
+    padding-right: 0;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+
+  .card__right {
+    padding-left: 0;
+  }
 }
-/* .card__right-gender{} */
+
+@media (max-width: 480px) {
+  .header__title {
+    font-size: 0.8rem;
+  }
+
+  .header__rightContent-img {
+    max-width: 250px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card__right-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card__right-userInfo {
+    font-size: 0.7rem;
+  }
+}
